@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'catalog/index.html')
+    return render(request, 'index.html')
 
 def contacts(request):
     if request.method == 'POST':
@@ -10,4 +10,4 @@ def contacts(request):
         email = request.POST.get('email')
         message = request.POST.get('message')
         print(f'{name} ({email}): {message}')
-    return render(request, 'catalog/contacts.html')
+    return render(request, 'contacts.html')
