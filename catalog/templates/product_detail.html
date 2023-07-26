@@ -1,0 +1,20 @@
+{% extends "catalog/base.html" %}
+{% block title %} Lesson 20.2 product {% endblock title %}
+{% block tab_main %} class="nav-link active"
+    aria-current="page" {% endblock tab_main %}
+{% block content %}
+    <h1 class="d-flex display-5 fw-normal justify-content-center align-items-end"
+        style="height: 15vh;"> {{ object.name }}</h1>
+        <div class="card-body">
+            <h1 class="card-title pricing-card-title">$ {{ object.price }}</h1>
+            {#            <ul class="list-unstyled mt-3 mb-4">#}
+            {#                <li>10 users included, 2 GB of storage,</li>#}
+            {#                <li>Email support, Help center access</li>#}
+            {#            </ul>#}
+            <p class="card-text"> {{ object.category }}</p>
+            <p class="d-inline-block text-truncate text-wrap"
+                  style="max-height: 7ch; max-width: 25ch;"> {{ object.description }}</p>
+            <button type="button" class="w-100 btn btn-lg btn-outline-primary">
+                Купить
+        </div>
+{% endblock content %}
