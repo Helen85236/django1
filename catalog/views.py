@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from catalog.models import Product, Contact
+from catalog.models import Product, Contact, Category
 
 
 def index(request):
@@ -13,17 +13,30 @@ def index(request):
     else:
         for product in list_products:
             print(product)
-    return render(request, 'index.html')
+    context = {
+        'object_list': list_products,
+    }
+    return render(request, 'index.html', context)
 
     # Get all products from catalog
 def category_list(request):
-    products = list(Product.objects.all())
+    category = list(Category.objects.all())
 
     context = {
-        'list_products': products,
+        'list_products': category,
     }
 
     return render(request, 'category_list.html', context)
+
+def product(request,id_product):
+    product = Product.objects.get(id=id_product)
+
+    context = {
+        'object': product,
+    }
+
+    return render(request, 'product_detail.html', context)
+
 
 
 def contacts(request):

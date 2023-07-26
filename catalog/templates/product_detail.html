@@ -1,8 +1,10 @@
-<div class="col-lg-auto mx-lg-5"  style="width: 20vw;">
-    <div class="card mb-4 rounded-3 shadow-sm">
-        <div class="card-header py-3">
-            <h4 class="my-0 fw-normal"> {{ object.name }} </h4>
-        </div>
+{% extends "catalog/base.html" %}
+{% block title %} Lesson 20.2 product {% endblock title %}
+{% block tab_main %} class="nav-link active"
+    aria-current="page" {% endblock tab_main %}
+{% block content %}
+    <h1 class="d-flex display-5 fw-normal justify-content-center align-items-end"
+        style="height: 15vh;">Product {{ object.name }}</h1>
         <div class="card-body">
             <h1 class="card-title pricing-card-title">$ {{ object.price }}</h1>
             {#            <ul class="list-unstyled mt-3 mb-4">#}
@@ -14,8 +16,5 @@
                   style="max-height: 7ch; max-width: 25ch;"> {{ object.description }}</p>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary">
                 Купить
-            </button>
-            <a href="/product/{{ object.id }}">detail -></a>
         </div>
-    </div>
-</div>
+{% endblock content %}
