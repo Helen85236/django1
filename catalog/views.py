@@ -7,15 +7,15 @@ def index(request):
     # Convert QuerySet to List
     list_products = list(Product.objects.all())
     # Print last five records
-    if len(list_products) >= 5:
-        for product in list_products[-5:]:
-            print(product)
-    else:
-        for product in list_products:
-            print(product)
-    context = {
-        'object_list': list_products,
-    }
+    # if len(list_products) >= 5:
+    #     for product in list_products[-5:]:
+    #         print(product)
+    # else:
+    #     for product in list_products:
+    #         print(product)
+    # context = {
+    #     'object_list': list_products,
+    # }
     return render(request, 'index.html', context)
 
     # Get all products from catalog
