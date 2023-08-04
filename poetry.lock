@@ -437,6 +437,15 @@ files = [
 [package.extras]
 cli = ["click (>=5.0)"]
 
+[[package]]
+name = "pytils"
+version = "0.4.1"
+description = "Russian-specific string utils"
+optional = false
+python-versions = "^3.7"
+files = [
+    {file = "pytils-0.4.1.tar.gz", hash = "sha256:aa109b1bc0ec4bdb7c9768520110348d8aeb0706600e6cf641272e6850e26eab"},
+]
 
 [[package]]
 name = "six"
@@ -524,4 +533,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "51f03e68ffbbebf1f7dc6ba648295a59f0db1d3aa56a4847eb1d4f1e1e92bc8a"
+content-hash = "873da6f1e5e578dd92522bbd97eaf7600e275f43f426d1cad1c27571b12ee2d1"
