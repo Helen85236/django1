@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, DetailView
 
-from catalog.models import Product, Contact, Category
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, CreateView, ListView, DetailView
+from pytils.translit import slugify
+
+from catalog.models import Product, Contact, Category, Blog
 
 
 class IndexView(TemplateView):
@@ -30,14 +33,18 @@ class IndexView(TemplateView):
 #
 #     # Get all products from catalog
 
-def category_list(request):
-    category = list(Category.objects.all())
+class CategotyListView(ListView):
+    model = Category
+    template_name = 'category_list.html'
 
-    context = {
-        'list_products': category,
-    }
-
-    return render(request, 'category_list.html', context)
+# def category_list(request):
+#     category = list(Category.objects.all())
+#
+#     context = {
+#         'list_products': category,
+#     }
+#
+#     return render(request, 'category_list.html', context)
 
 class ProductDetailView(DetailView):
     model = Product
@@ -62,3 +69,23 @@ def contacts(request):
         message = request.POST.get('message')
         print(f'{name} ({email}): {message}')
     return render(request, 'contacts.html',{"contacts": data})
+
+class BlogCreateView(CreateView):
+    model = Blog
+    fields = ('title', 'content', 'date_created', 'preview')
+    success_url = reverse_lazy('catalog:blog_list')
+
+    def form_valid(self, form):
+        if form.is_valid:
+            new_mat = form.save()
+            new_mat.slug = slugify(new_mat.title)
+            new_mat.save()
+
+        return super().form_valid(form)
+
+class BlogListView(ListView):
+    model = Blog
+
+    # def query(self, *args, **kwargs):
+    #     queryset = super().get_queryset(*args, **kwargs)
+    #     return queryset
