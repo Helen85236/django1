@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.urls import reverse_lazy, reverse
-from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView
+from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView, DeleteView
 from pytils.translit import slugify
 
 from catalog.models import Product, Contact, Category, Blog
@@ -111,4 +111,9 @@ class BlogDetailView(DetailView):
         self.object.views_count += 1
         self.object.save()
         return self.object
+
+class BlogDeleteView(DeleteView):
+    model = Blog
+    success_url = reverse_lazy('catalog:blog_list')
+
 
