@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-ru'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -142,4 +142,14 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+# Settings for email spam
+EMAIL_HOST = '79532870251@yandex.ru'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = '79532870251@yandex.ru'
+EMAIL_HOST_PASSWORD = '1QAZ1wsx1'
+EMAIL_USE_SSL = True
 
