@@ -18,7 +18,7 @@ class LogoutView(BaseLogoutView):
 
 class RegisterView(CreateView):
     model = User
-    form_class = UserRegisterFrom
+    form_class = UserRegisterForm
     success_url = reverse_lazy('users:login')
     template_name = 'users/register.html'
 
@@ -33,7 +33,7 @@ class RegisterView(CreateView):
         )
         return super().form_valid(form)
 
-class UserUpdateForm(UpdateView):
+class UserUpdateView(UpdateView):
     model = User
     form_class = UserForm
     success_url = reverse_lazy('users:profile')
