@@ -147,9 +147,9 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 # Settings for email spam
-EMAIL_HOST = 'localhost'
+EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = '79532870251@yandex.ru'
-EMAIL_HOST_PASSWORD = '1QAZ'
+EMAIL_HOST_USER = 'fuckup@oscarbot.ru'
+EMAIL_HOST_PASSWORD = 'AsTSNVv7pun9'
 EMAIL_USE_SSL = True
 
