@@ -168,5 +168,7 @@ class ProductUpdateView(UpdateView):
             formset.save()
         return super().form_valid(form)
 
+class ProductDetailView(DetailView):
+    model = Product
 
 
