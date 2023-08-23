@@ -29,7 +29,7 @@ class Product(models.Model):
     price = models.IntegerField(verbose_name='Price')
     date_created = models.DateTimeField(verbose_name='Date Created')
     date_modified = models.DateTimeField(**NULLABLE, verbose_name='Date Modified')
-
+    is_published = models.BooleanField(default=False)
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name='Owner')
 
     def __str__(self):
@@ -38,7 +38,20 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Product'
         verbose_name_plural = 'Products'
-
+        permissions = [
+            (
+                'set_description',
+                'Can change description'
+            ),
+            (
+                'set_public',
+                'Can change public'
+            ),
+            (
+                'set_category',
+                'Can change category'
+            )
+        ]
 
 class Contact(models.Model):
     name = models.CharField(max_length=250, verbose_name='Contact name')

@@ -7,7 +7,7 @@ from pytils.translit import slugify
 
 from catalog.forms import ProductForm, VersionForm
 from catalog.models import Product, Contact, Category, Blog, Version
-
+from django.core.exceptions import PermissionDenied
 
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -143,6 +143,11 @@ class ProductUpdateView(UpdateView):
     model = Product
     form_class = ProductForm
 
+    def get_object(self, queryset=None):
+        self.object = super().get_object(queryset)
+        if self.object.owner != self.request.user:
+            raise PermissionDenied
+        return self.object
     def get_success_url(self):
         return reverse('catalog:product_update', args=[self.object.pk])
 
