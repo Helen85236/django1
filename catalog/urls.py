@@ -2,7 +2,7 @@ from django.urls import path
 from django.views.decorators.cache import cache_page
 
 from catalog.apps import CatalogConfig
-from catalog.views import IndexView, ProductDetailView, contacts, CategotyListView, BlogListView, BlogCreateView,  \
+from catalog.views import IndexView, contacts, BlogListView, BlogCreateView,  \
     BlogDetailView, BlogUpdateView, BlogDeleteView, hidden_blog, ProductCreateView, ProductUpdateView, ProductDetailView, CategoryListView
 
 app_name = CatalogConfig.name
@@ -10,7 +10,6 @@ app_name = CatalogConfig.name
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('contacts/', contacts, name='contacts'),
-    path('product/<int:pk>', ProductDetailView.as_view(), name='product'),
 
     path('blog/', BlogListView.as_view(), name='blog_list'),
     path('blog/create/', BlogCreateView.as_view(), name='blog_create'),

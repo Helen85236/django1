@@ -50,20 +50,6 @@ class CategotyListView(ListView):
 #
 #     return render(request, 'category_list.html', context)
 
-class ProductDetailView(DetailView):
-    model = Product
-    template_name = 'product_detail.html'
-
-# def product(request,id_product):
-#     product = Product.objects.get(id=id_product)
-#
-#     context = {
-#         'object': product,
-#     }
-#
-#     return render(request, 'product_detail.html', context)
-
-
 
 def contacts(request):
     data = Contact.objects.all()
